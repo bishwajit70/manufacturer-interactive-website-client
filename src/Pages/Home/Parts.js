@@ -4,14 +4,6 @@ import SingleProduct from './SingleProduct';
 import Loading from '../Shared/Loading'
 
 const Parts = () => {
-    // const [products, setProducts] = useState([])
-
-
-    // useEffect(() => {
-    //     fetch('products.json')
-    //         .then(res => res.json())
-    //         .then(data => setProducts(data))
-    // }, [])
 
 
     const { data: products, isLoading, refetch } = useQuery('products', () => fetch('http://localhost:5000/product', {
