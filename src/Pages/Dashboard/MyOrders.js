@@ -42,7 +42,7 @@ const MyOrders = () => {
 
     return (
         <div>
-            <h2>My Orders {orders.length}</h2>
+            <h2>My Orders</h2>
 
             <div class="overflow-x-auto">
 
@@ -55,6 +55,7 @@ const MyOrders = () => {
                             <th>Name</th>
                             <th>Quantity</th>
                             <th>Action</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
