@@ -8,7 +8,7 @@ const AddAReview = () => {
     const { register, handleSubmit, getValues, watch, formState: { errors } } = useForm();
 
     const onSubmit = data => {
-        console.log(data)
+        // console.log(data)
     }
     return (
         <div>
