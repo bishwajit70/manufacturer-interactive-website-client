@@ -1,17 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import Purchase from '../Purchase';
+import { useQuery } from 'react-query';
 import SingleProduct from './SingleProduct';
+import Loading from '../Shared/Loading'
 
 const Parts = () => {
-    const [products, setProducts] = useState([])
+    // const [products, setProducts] = useState([])
 
 
-    useEffect(() => {
-        fetch('products.json')
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    }, [])
+    // useEffect(() => {
+    //     fetch('products.json')
+    //         .then(res => res.json())
+    //         .then(data => setProducts(data))
+    // }, [])
 
+
+    const { data: products, isLoading, refetch } = useQuery('products', () => fetch('http://localhost:5000/product', {
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then(res => res.json()))
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
     return (
         <div>
@@ -21,7 +31,6 @@ const Parts = () => {
                     products.map(product => <SingleProduct
                         key={product._id}
                         product={product}
-
                     ></SingleProduct>)
                 }
             </div>
