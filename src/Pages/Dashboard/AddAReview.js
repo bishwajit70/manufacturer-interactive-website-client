@@ -12,7 +12,6 @@ const AddAReview = () => {
     }
     return (
         <div>
-            <h2>Add A Review</h2>
             <div className='mx-auto'>
                 <div className='grid lg:grid-cols-2 px-5 py-5 justify-between items-center'>
                     <h2 className='mb-3'>Name: {user.displayName}</h2>
@@ -22,7 +21,7 @@ const AddAReview = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div>
                             <label className="label">
-                                <span className="label-text">Review</span>
+                                <span className="label-text">Add Your Review</span>
                             </label>
                             <textarea
                                 {...register("review", {
@@ -35,16 +34,33 @@ const AddAReview = () => {
                                 type="text"
                                 placeholder="Your Review"
                                 className="border-2 w-11/12 rounded-lg p-2" cols="30" rows="10"></textarea>
-                                {/* <textarea name="" id="" cols="30" rows="10"></textarea> */}
+                            <label className="label">
+                                {errors.review?.type === 'required' && <span className="label-text-alt text-red-500">{errors.review.message}</span>}
+                            </label>
+
+                            <label className="label">
+                                <span className="label-text">Ratings</span>
+                            </label>
+                            <input
+                                {...register("ratings", {
+                                    required: {
+                                        value: true,
+                                        message: 'ratings'
+                                    },
+                                })}
+                                name='ratings'
+                                type="number"
+                                placeholder="Your Rating"
+                                className="border-2 w-11/12 rounded-lg p-2" />
+
                             <label className="label">
                                 {errors.review?.type === 'required' && <span className="label-text-alt text-red-500">{errors.review.message}</span>}
                             </label>
                         </div>
 
-                        
+
                         <div className='grid grid-cols-2 xs:w-full lg:grid-cols-2 gap-5 lg:w-11/12 justify-between'>
                             <input className="btn" type="submit" value='Submit' />
-                            <input className="btn" type="submit" value='Update' />
                         </div>
                     </form>
                 </div>
