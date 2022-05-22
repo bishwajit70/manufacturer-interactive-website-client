@@ -5,9 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Navbar = () => {
-
     const [user, loading, error] = useAuthState(auth);
-
     const navigate = useNavigate()
 
     const handleSignOut = () => {
@@ -15,14 +13,15 @@ const Navbar = () => {
         navigate('/login')
     }
 
-    console.log(user)
-
     const menuItem = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/purchase'>Purchase</Link></li>
+        {
+            user && <li><Link to='/dashboard'>Dashboard</Link></li>
+        }
         <li>{user ? <button className="btn btn-active btn-ghost" onClick={handleSignOut}>Sign Out</button>
+
             : <Link to='/login'>Login</Link>}</li>
-        <li>{user && <Link to='/login'>{user.displayName}</Link>}</li>
+        <li>{user && <Link to='/'>{user.displayName}</Link>}</li>
     </>
     return (
         <div class="navbar bg-base-100">
@@ -43,7 +42,9 @@ const Navbar = () => {
                 </ul>
             </div>
             <div class="navbar-end">
-                <a class="btn">Get started</a>
+                <label tabindex="1" for="dashboard-sidebar" class="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </label>
             </div>
         </div>
     );
