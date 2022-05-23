@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 
-const SingleProduct = ({ product, setPurchase }) => {
+const SingleProduct = ({ product }) => {
     const { _id, name, description, unitprice, image, minorder, available } = product
     const navigate=useNavigate()
     return (

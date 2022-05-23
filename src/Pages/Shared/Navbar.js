@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Navbar = () => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const navigate = useNavigate()
 
     const handleSignOut = () => {
@@ -21,6 +21,7 @@ const Navbar = () => {
             user && <li><Link to='/dashboard'>Dashboard</Link></li>
         }
         <li>{user ? <button className="btn btn-active btn-ghost" onClick={handleSignOut}>Sign Out</button>
+
 
             : <Link to='/login'>Login</Link>}</li>
         <li>{user && <Link to='/'>{user.displayName}</Link>}</li>

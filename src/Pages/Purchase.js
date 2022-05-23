@@ -43,13 +43,15 @@ const Purchase = () => {
         fetch('http://localhost:5000/order', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+
             },
             body: JSON.stringify(order)
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                console.log(data)
                 alert("Order Placed Successfully.");
                 event.target.reset();
             })
