@@ -5,8 +5,7 @@ import Loading from '../Shared/Loading'
 
 const Parts = () => {
 
-
-    const { data: products, isLoading, refetch } = useQuery('products', () => fetch('http://localhost:5000/product', {
+    const { data: products, isLoading } = useQuery('products', () => fetch('http://localhost:5000/product', {
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
