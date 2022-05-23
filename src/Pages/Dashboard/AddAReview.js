@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const AddAReview = () => {
@@ -8,8 +9,21 @@ const AddAReview = () => {
     const { register, handleSubmit, getValues, watch, formState: { errors } } = useForm();
 
     const onSubmit = data => {
-        // console.log(data)
+        fetch('http://localhost:5000/review', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                toast.success('Review Placed Successfully.')
+            })
     }
+
     return (
         <div>
             <div className='mx-auto'>
