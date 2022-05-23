@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle }
 from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading';
+import useToken from '../../hooks/useToken';
 
 
 const Login = () => {
@@ -21,21 +22,21 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    // const [token] = useToken(user || googleUser)
+    const [token] = useToken(user || googleUser)
 
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
-    // useEffect(() => {
-    //     if (token) {
-    //         navigate(from, { replace: true });
-    //     }
-    // }, [token, from, navigate])
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token, from, navigate])
 
-    if (user || googleUser) {
-        navigate(from, { replace: true });
-    }
+    // if (user || googleUser) {
+    //     navigate(from, { replace: true });
+    // }
     console.log(googleUser)
     let signInError;
 
