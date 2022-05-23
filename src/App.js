@@ -8,6 +8,8 @@ import Home from './Pages/Home/Home'
 import Login from './Pages/Login/Login';
 import RequireAuth from './Pages/Login/RequireAuth';
 import SignUp from './Pages/Login/SignUp';
+import MyPortfolio from './Pages/MyPortfolio';
+import NotFoundPage from './Pages/NotFoundPage';
 import Purchase from './Pages/Purchase';
 import Navbar from './Pages/Shared/Navbar';
 
@@ -17,6 +19,7 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/myportfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='/purchase/:id' element={
           <RequireAuth>
             <Purchase></Purchase>
@@ -28,14 +31,16 @@ function App() {
             <Dashboard>
             </Dashboard>
           </RequireAuth>}>
-            <Route index element={<MyProfile></MyProfile>}></Route>
-            <Route path='myorder' element={<MyOrders></MyOrders>}></Route>
-            <Route path='review' element={<AddAReview></AddAReview>}></Route>
+          <Route index element={<MyProfile></MyProfile>}></Route>
+          <Route path='myorder' element={<MyOrders></MyOrders>}></Route>
+          <Route path='review' element={<AddAReview></AddAReview>}></Route>
         </Route>
 
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
+        <Route path='*' element={<NotFoundPage></NotFoundPage>}></Route>
       </Routes>
+
     </div>
   );
 }
