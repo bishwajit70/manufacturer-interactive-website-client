@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import useToken from '../../hooks/useToken';
 // import useToken from '../../hooks/useToken';
@@ -13,6 +13,7 @@ const SignUp = () => {
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const navigate = useNavigate()
+    const location = useLocation();
 
     const [
         createUserWithEmailAndPassword,
@@ -25,7 +26,13 @@ const SignUp = () => {
 
     // const [token] = useToken(user || googleUser);
     const [token] = useToken(user || googleUser)
+    let from = location.state?.from?.pathname || "/";
 
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token, from, navigate])
 
     if (loading || googleLoading || updating) {
         return <Loading></Loading>
@@ -34,9 +41,7 @@ const SignUp = () => {
     if (error || googleError || updateError) {
         signUpError = <p className='text-red-500 pb-3 text-center'><small>{error?.message || googleError?.message || updateError?.message}</small></p>
     }
-    if (token) {
-        navigate('/')
-    }
+    
 
     const onSubmit = async data => {
         // console.log(data);
