@@ -5,10 +5,30 @@ import { useForm } from "react-hook-form";
 
 const MyProfile = () => {
     const [user, loading, error] = useAuthState(auth);
-    const { register, handleSubmit, getValues, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const email = user.email;
 
     const onSubmit = data => {
-        console.log(data)
+        const userProfile = {
+            email: user.email,
+            education: data.education,
+            location: data.location,
+            phone: data.phone,
+            linkedin: data.linkedin
+        }
+        // console.log(userProfile)
+        fetch(`http://localhost:5000/profile/${email}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userProfile)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result)
+            })
     }
 
     return (
