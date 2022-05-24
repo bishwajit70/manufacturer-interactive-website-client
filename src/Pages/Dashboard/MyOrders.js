@@ -1,33 +1,32 @@
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
+import DeleteConfirmModal from './DeleteConfirmModal';
 import SingleOrder from './SingleOrder';
 
 const MyOrders = () => {
 
-    const [orders, setOrders] = useState([])
+    // const [orders, setOrders] = useState([])
+    const [deletingOrder, setDeletingOrder] = useState(null)
+
     const [user] = useAuthState(auth);
     const navigate = useNavigate()
 
-    useEffect(() => {
-        if (user) {
-            fetch(`http://localhost:5000/order?email=${user.email}`, {
-                method: 'GET',
-                headers: {
-                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                }
-            })
-                .then(res => res.json())
-                .then(data => {
-                    setOrders(data)
-
-                })
+    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`http://localhost:5000/order?email=${user.email}`, {
+        method: 'GET',
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }
-    }, [user])
+    }).then(res =>
+        res.json()))
 
-
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
     return (
         <div>
@@ -55,12 +54,18 @@ const MyOrders = () => {
                                 key={order._id}
                                 order={order}
                                 index={index}
+                                setDeletingOrder={setDeletingOrder}
+                                
                             ></SingleOrder>)
                         }
                     </tbody>
                 </table>
             </div>
-
+            {deletingOrder && <DeleteConfirmModal
+                deletingOrder={deletingOrder}
+                refetch={refetch}
+                setDeletingOrder={setDeletingOrder}
+            ></DeleteConfirmModal>}
         </div>
     );
 };

@@ -19,18 +19,6 @@ const Purchase = () => {
             .then(data => setPurchase(data))
     }, [id])
 
-    // const increaseQty = (event) => {
-    //     event.preventDefault()
-    //     let prevOrderQty = minorder;
-    //     // let newQty = event.target.quantity.value;
-    //     console.log(prevOrderQty);
-    //     let newQuantity = prevOrderQty+1 
-    //     prevOrderQty=newQuantity;
-    //     // orderqty = orderqty+1
-
-    //     // console.log(orderqty)
-
-    // }
 
     const handleAddOrder = (event) => {
         event.preventDefault()
@@ -46,7 +34,6 @@ const Purchase = () => {
             headers: {
                 'Content-Type': 'application/json',
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-
             },
             body: JSON.stringify(order)
         })
