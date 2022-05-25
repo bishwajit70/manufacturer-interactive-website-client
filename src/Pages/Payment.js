@@ -1,8 +1,18 @@
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
+import auth from '../firebase.init';
+import CheckoutForm from './Dashboard/CheckoutForm';
+
+const stripePromise = loadStripe('pk_test_51L39PSCX1e2lGoCHlkT2Nds67UnRiZP6bPk0mENMQqIX4XyA3hBVcHBGzIo1MOxbmGu9yCoAyRiFMv2ypqUEmIdL00aEnQaLNH');
 
 const Payment = () => {
+
     const [payments, setPayment] = useState({})
+
+    const [user] = useAuthState(auth);
 
     const { id } = useParams()
 
@@ -16,21 +26,31 @@ const Payment = () => {
     }, [id])
 
     return (
-        <div className='flex mx-auto justify-center py-5' >
-            <div class="card w-96 bg-base-100 shadow-xl">
-                <figure class="px-10 pt-10">
-                    <img src={image} alt={name} class="rounded-xl" />
-                </figure>
-                <div class="card-body items-center text-center">
-                    <h2 className="card-title">{name}</h2>
-                    <p className='text-left'>{description}</p>
-                    <p className='text-left'>Ordered Quantity: <span>{minorder}</span></p>
-                    <p className='text-left'>Unit Price: <span>{unitprice}</span></p>
-                    <div class="card-actions">
-                        <button class="btn btn-primary">Complete Payment</button>
+        <div>
+            <p className='text-center text-2xl text-purple-500'>Hello!! {user.displayName}</p>
+            <p className='text-center text-2xl text-purple-500'>Please Pay for </p>
+            <div className='flex mx-auto justify-center py-5'>
+                <div class="card w-96 bg-base-100 shadow-xl">
+                    <figure class="px-10 pt-10">
+                        <img src={image} alt={name} class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 className="card-title">{name}</h2>
+                        <p className='text-left'>{description}</p>
+                        <p className='text-left'>Ordered Quantity: <span>{minorder}</span></p>
+                        <p className='text-left'>Unit Price: <span>{unitprice}</span></p>
+                        <div class="card-actions">
+
+                        </div>
                     </div>
                 </div>
+
             </div>
+
+            <Elements stripe={stripePromise}>
+                <CheckoutForm />
+            </Elements>
+
         </div>
     );
 };

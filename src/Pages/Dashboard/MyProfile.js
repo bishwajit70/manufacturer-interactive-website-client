@@ -3,6 +3,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
+import { useQuery } from 'react-query';
+import Loading from '../Shared/Loading';
 
 const MyProfile = () => {
     const [user, loading, error] = useAuthState(auth);
@@ -10,6 +12,17 @@ const MyProfile = () => {
 
     const email = user.email;
 
+    const { data, isLoading, refetch } = useQuery('profiles', () => fetch(`http://localhost:5000/profile/${email}`, {
+        method: 'GET',
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then(res => res.json()))
+
+    if (isLoading) {
+        return <Loading></Loading>
+        
+    }
     const onSubmit = data => {
         const userProfile = {
             email: user.email,
@@ -29,6 +42,7 @@ const MyProfile = () => {
             .then(res => res.json())
             .then(result => {
                 toast.success('Profile Submitted Successfully.')
+                refetch()
             })
     }
 
@@ -37,6 +51,10 @@ const MyProfile = () => {
             <div className='grid lg:grid-cols-2 px-5 py-5 justify-between items-center'>
                 <h2 className='mb-3'>Name: {user.displayName}</h2>
                 <h2>Email: {user.email}</h2>
+                <p className='py-3'>Education: {data.education}</p>
+                <a className='text-blue-700 font-bold' target='{_blank}' href={data.linkedin}>Linkedin Profile Link</a>
+                <p>Location: {data.location}</p>
+                <p>Phone Number: {data.phone}</p>
             </div>
             <div className="grid px-5 grid-cols-1 mx-auto">
                 <form onSubmit={handleSubmit(onSubmit)}>
