@@ -12,7 +12,7 @@ const Reviews = () => {
 
     return (
         <div>
-            <h2 className='text-center text-5xl font-bold py-20 text-purple-400'>What our Clients Says!</h2>
+            <h2 className='text-center text-3xl lg:text-5xl font-bold py-20 text-purple-400'>What our Clients Says!</h2>
             <div className='grid grid-cols-1 px-5 py-10 lg:flex gap-10 items-center justify-between'>
                 {
                     reviews.map(review => <SingleReview

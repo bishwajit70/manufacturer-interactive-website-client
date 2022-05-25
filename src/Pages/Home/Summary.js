@@ -8,7 +8,7 @@ import { BiLike } from 'react-icons/bi';
 const Summary = () => {
     return (
         <div className='bg-slate-200 px-2 lg:px-10 rounded-lg shadow-lg my-10'>
-            <h3 className='text-center text-5xl font-bold py-20 text-purple-400'>Our Summary</h3>
+            <h3 className='text-center text-3xl lg:text-5xl font-bold py-20 text-purple-400'>Our Summary</h3>
             <div className='grid grid-cols-1 lg:grid-cols-4 gap-5 justify-between'>
                 <div className='text-center bg-purple-50 border-2 p-10 rounded-md'>
                     <FaRegFlag className='text-6xl mx-auto'></FaRegFlag>
