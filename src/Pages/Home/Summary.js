@@ -48,25 +48,25 @@ const Summary = () => {
                             <h2 className='text-2xl font-bold'>How Can Use The Product?</h2>
                         </div>
                         <div class="collapse-content bg-white">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam incidunt reprehenderit quod dicta nesciunt necessitatibus quaerat ex distinctio, maxime consequuntur.</p>
+                            <p>It is a very easy process. Take a user guide and read the instructions attentively. Then try to assemble it or fix it. If you are not capable then contact an expert or to us.</p>
                         </div>
                     </div>
                     <div class="collapse mt-5 rounded-md">
                         <input type="checkbox" class="peer collapse-plus" />
                         <div class="collapse-title bg-white">
-                            <h2 className='text-2xl font-bold'>How Can Use The Product?</h2>
+                            <h2 className='text-2xl font-bold'>What is the benefit of our product?</h2>
                         </div>
                         <div class="collapse-content bg-white">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam incidunt reprehenderit quod dicta nesciunt necessitatibus quaerat ex distinctio, maxime consequuntur.</p>
+                            <p>We produce carefully and taking quality test in each and every process. So you can be assured that the product is the best. Our products supports your whole life. </p>
                         </div>
                     </div>
                     <div class="collapse mt-5 rounded-md ">
                         <input type="checkbox" class="peer collapse-plus" />
                         <div class="collapse-title bg-white">
-                            <h2 className='text-2xl font-bold'>How Can Use The Product?</h2>
+                            <h2 className='text-2xl font-bold'>How will we contact with us?</h2>
                         </div>
                         <div class="collapse-content bg-white">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam incidunt reprehenderit quod dicta nesciunt necessitatibus quaerat ex distinctio, maxime consequuntur.</p>
+                            <p>Visit our Website and then you will get the contact info as well as you will find contact information in our bruchure or user manual.</p>
                         </div>
                     </div>
                 </div>

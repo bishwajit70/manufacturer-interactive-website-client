@@ -9,17 +9,26 @@ const AddAReview = () => {
     const { register, handleSubmit, getValues, watch, formState: { errors } } = useForm();
 
     const onSubmit = data => {
+
+        const userName = user.displayName;
+        const email = user.email;
+        const photoUrl = user.photoURL;
+        const reviewText = data.review;
+        const ratings = data.ratings
+        console.log(ratings)
+
+        const reviews = {userName, email, reviewText, photoUrl, ratings}
+
         fetch('https://shielded-basin-34562.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(reviews)
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 toast.success('Review Placed Successfully.')
             })
     }
@@ -74,7 +83,7 @@ const AddAReview = () => {
 
 
                         <div className='grid grid-cols-2 xs:w-full lg:grid-cols-2 gap-5 lg:w-11/12 justify-between'>
-                            <input className="btn" type="submit" value='Submit' />
+                            <input className="btn" type="submit" value='Add Review' />
                         </div>
                     </form>
                 </div>
