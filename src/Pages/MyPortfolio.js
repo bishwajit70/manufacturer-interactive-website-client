@@ -8,11 +8,11 @@ const MyPortfolio = () => {
             <h3>Email: mailtobishwa15@gmail.com</h3>
             <div>
                 <h2 className='text-4xl py-5'>Educational Background</h2>
-                <div class="overflow-x-auto">
-                    <table class="table w-full">
+                <div className="overflow-x-auto">
+                    <table className="table w-full">
 
                         <thead>
-                            <tr class="active">
+                            <tr className="active">
                                 <th>#</th>
                                 <th>Exam Name</th>
                                 <th>Passing Year</th>
@@ -28,7 +28,7 @@ const MyPortfolio = () => {
                                 <td>Dhaka Board</td>
                             </tr>
 
-                            <tr class="active">
+                            <tr className="active">
                                 <th>2</th>
                                 <td>Higher Secondary Certificate</td>
                                 <td>1988</td>

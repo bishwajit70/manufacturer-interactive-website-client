@@ -6,8 +6,8 @@ const OrderRow = ({ order, index, setDeletingOrder }) => {
         <tr>
             <th>{index + 1}</th>
             <td>
-                <div class="avatar">
-                    <div class="w-16 rounded">
+                <div className="avatar">
+                    <div className="w-16 rounded">
                         <img src={image} alt="Product Image" />
                     </div>
                 </div>
@@ -15,8 +15,8 @@ const OrderRow = ({ order, index, setDeletingOrder }) => {
             <td>{name}</td>
             <td>{status}</td>
             <td>
-                <label onClick={() => setDeletingOrder(order)} for="delete-order-modal" class="btn modal-button">Delete</label>
-                
+                <label onClick={() => setDeletingOrder(order)} for="delete-order-modal" className="btn modal-button">Delete</label>
+
             </td>
         </tr>
     );

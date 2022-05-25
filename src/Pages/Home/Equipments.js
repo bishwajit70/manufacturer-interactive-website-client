@@ -2,7 +2,7 @@ import React from 'react';
 
 const Equipments = () => {
     return (
-        <div>
+        <div className='mb-20'>
             <h2 className='text-center text-3xl lg:text-5xl font-bold py-20 text-purple-400'>Equipments We Provide</h2>
             <div className='grid px-2 grid-cols-1 lg:flex gap-8 justify-evenly'>
                 <div>

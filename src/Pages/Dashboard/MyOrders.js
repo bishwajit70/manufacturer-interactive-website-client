@@ -34,9 +34,9 @@ const MyOrders = () => {
             <h2 className='mb-3'>Name: {user.displayName}</h2>
             <h2>Email: {user.email}</h2>
 
-            <div class="overflow-x-auto">
+            <div className="overflow-x-auto">
 
-                <table class="table w-full">
+                <table className="table w-full">
 
                     <thead>
                         <tr>

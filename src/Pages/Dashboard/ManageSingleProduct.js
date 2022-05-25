@@ -7,8 +7,8 @@ const ManageSingleProduct = ({ product, index, setDeletingProduct }) => {
         <tr>
             <th>{index + 1}</th>
             <td>
-                <div class="avatar">
-                    <div class="w-24 rounded">
+                <div className="avatar">
+                    <div className="w-24 rounded">
                         <img src={image} alt='' />
                     </div>
                 </div>
@@ -18,10 +18,10 @@ const ManageSingleProduct = ({ product, index, setDeletingProduct }) => {
                 <p>{description.slice(0, 50)}</p>
             </td>
             <td>
-            <label onClick={()=>setDeletingProduct(product)} for="delete-confirm-modal" class="btn modal-button">Delete</label>
+                <label onClick={() => setDeletingProduct(product)} for="delete-confirm-modal" className="btn modal-button">Delete</label>
 
                 {/* <button 
-                onClick={()=>setDeletingProduct(product)} class="btn btn-outline btn-primary">Delete
+                onClick={()=>setDeletingProduct(product)} className="btn btn-outline btn-primary">Delete
                 </button> */}
             </td>
         </tr>
