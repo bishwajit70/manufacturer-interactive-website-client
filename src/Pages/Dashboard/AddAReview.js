@@ -9,7 +9,7 @@ const AddAReview = () => {
     const { register, handleSubmit, getValues, watch, formState: { errors } } = useForm();
 
     const onSubmit = data => {
-        fetch('http://localhost:5000/review', {
+        fetch('https://shielded-basin-34562.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

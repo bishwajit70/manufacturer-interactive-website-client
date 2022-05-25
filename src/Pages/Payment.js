@@ -19,7 +19,7 @@ const Payment = () => {
     const { name, image, description, minorder, available, unitprice } = payments
 
     useEffect(() => {
-        const url = `http://localhost:5000/payment/${id}`
+        const url = `https://shielded-basin-34562.herokuapp.com/payment/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setPayment(data))

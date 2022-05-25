@@ -5,7 +5,7 @@ import Loading from '../Shared/Loading'
 
 const Parts = () => {
 
-    const { data: products, isLoading } = useQuery('products', () => fetch('http://localhost:5000/product', {
+    const { data: products, isLoading } = useQuery('products', () => fetch('https://shielded-basin-34562.herokuapp.com/product', {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }

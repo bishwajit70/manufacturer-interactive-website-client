@@ -14,7 +14,7 @@ const AddAProduct = () => {
 
         const newProduct = { name, image, description, minorder, available, unitprice }
 
-        fetch('http://localhost:5000/product', {
+        fetch('https://shielded-basin-34562.herokuapp.com/product', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -35,16 +35,16 @@ const AddAProduct = () => {
             Add A Product
             <form onSubmit={handleAddOrder}>
                 <div className='grid grid-cols-2 gap-3'>
-                <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="text" name="name" placeholder='Product Name' id="" />
-                <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="text" name="image" placeholder='Image URL' id="" />
-                <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="text" name="description" placeholder='Short Description' id="" />
-                <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="text" name="available" placeholder='Available Quantity' id="" />
-                <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="text" name="minorder" placeholder='Minimum Order Quantity' id="" />
-                <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="number" name="unitprice" placeholder='Unit Price' id="" />
-                <input className='border-2 lounded-lg p-2 cursor-pointer mb-3 rounded-md' type="submit" value="Add Product" />
+                    <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="text" name="name" placeholder='Product Name' id="" />
+                    <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="text" name="image" placeholder='Image URL' id="" />
+                    <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="text" name="description" placeholder='Short Description' id="" />
+                    <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="text" name="available" placeholder='Available Quantity' id="" />
+                    <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="text" name="minorder" placeholder='Minimum Order Quantity' id="" />
+                    <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="number" name="unitprice" placeholder='Unit Price' id="" />
+                    <input className='border-2 lounded-lg p-2 cursor-pointer mb-3 rounded-md' type="submit" value="Add Product" />
                 </div>
-                
-            </form> 
+
+            </form>
         </div>
     );
 };

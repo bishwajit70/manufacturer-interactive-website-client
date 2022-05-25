@@ -12,7 +12,7 @@ const MyProfile = () => {
 
     const email = user.email;
 
-    const { data, isLoading, refetch } = useQuery('profiles', () => fetch(`http://localhost:5000/profile/${email}`, {
+    const { data, isLoading, refetch } = useQuery('profiles', () => fetch(`https://shielded-basin-34562.herokuapp.com/profile/${email}`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -21,7 +21,7 @@ const MyProfile = () => {
 
     if (isLoading) {
         return <Loading></Loading>
-        
+
     }
     const onSubmit = data => {
         const userProfile = {
@@ -32,7 +32,7 @@ const MyProfile = () => {
             linkedin: data.linkedin
         }
         // console.log(userProfile)
-        fetch(`http://localhost:5000/profile/${email}`, {
+        fetch(`https://shielded-basin-34562.herokuapp.com/profile/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -51,10 +51,10 @@ const MyProfile = () => {
             <div className='grid lg:grid-cols-2 px-5 py-5 justify-between items-center'>
                 <h2 className='mb-3'>Name: {user.displayName}</h2>
                 <h2>Email: {user.email}</h2>
-                <p className='py-3'>Education: {data.education}</p>
-                <a className='text-blue-700 font-bold' target='{_blank}' href={data.linkedin}>Linkedin Profile Link</a>
-                <p>Location: {data.location}</p>
-                <p>Phone Number: {data.phone}</p>
+                <p className='py-3'>Education: {data?.education}</p>
+                <a className='text-blue-700 font-bold' target='{_blank}' href={data?.linkedin}>Linkedin Profile Link</a>
+                <p>Location: {data?.location}</p>
+                <p>Phone Number: {data?.phone}</p>
             </div>
             <div className="grid px-5 grid-cols-1 mx-auto">
                 <form onSubmit={handleSubmit(onSubmit)}>

@@ -16,7 +16,7 @@ const MyOrders = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate()
 
-    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`http://localhost:5000/order?email=${user.email}`, {
+    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`https://shielded-basin-34562.herokuapp.com/order?email=${user.email}`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -55,7 +55,7 @@ const MyOrders = () => {
                                 order={order}
                                 index={index}
                                 setDeletingOrder={setDeletingOrder}
-                                
+
                             ></SingleOrder>)
                         }
                     </tbody>

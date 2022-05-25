@@ -13,7 +13,7 @@ const Purchase = () => {
 
     const { name, image, description, minorder, available, unitprice } = purchase
     useEffect(() => {
-        const url = `http://localhost:5000/purchase/${id}`
+        const url = `https://shielded-basin-34562.herokuapp.com/purchase/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setPurchase(data))
@@ -29,7 +29,7 @@ const Purchase = () => {
         const others = event.target.others.value;
         const order = { userName, email, name, image, description, minorder, available, unitprice, address, phone, others, status: 'pending' }
 
-        fetch('http://localhost:5000/order', {
+        fetch('https://shielded-basin-34562.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

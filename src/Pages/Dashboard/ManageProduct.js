@@ -7,7 +7,7 @@ import ManageSingleProduct from './ManageSingleProduct';
 const ManageProduct = () => {
     const [deletingProduct, setDeletingProduct] = useState(null)
 
-    const { data: products, isLoading, refetch } = useQuery('products', () => fetch('http://localhost:5000/product', {
+    const { data: products, isLoading, refetch } = useQuery('products', () => fetch('https://shielded-basin-34562.herokuapp.com/product', {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`

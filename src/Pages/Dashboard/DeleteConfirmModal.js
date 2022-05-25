@@ -5,7 +5,7 @@ const DeleteConfirmModal = ({ deletingOrder, refetch, setDeletingOrder }) => {
     const { name, _id } = deletingOrder
 
     const handleCancelOrder = () => {
-        const url = `http://localhost:5000/order/${_id}`
+        const url = `https://shielded-basin-34562.herokuapp.com/order/${_id}`
         fetch(url, {
             method: "DELETE",
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const DeleteOrderModal = ({deletingOrder, refetch, setDeletingOrder}) => {
-    const {_id, name}=deletingOrder
+const DeleteOrderModal = ({ deletingOrder, refetch, setDeletingOrder }) => {
+    const { _id, name } = deletingOrder
 
     const handleDeleteOrder = () => {
-        const url = `http://localhost:5000/orders/${_id}`
+        const url = `https://shielded-basin-34562.herokuapp.com/orders/${_id}`
         fetch(url, {
             method: "DELETE",
 

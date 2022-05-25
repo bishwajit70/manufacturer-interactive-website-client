@@ -5,7 +5,7 @@ const DeleteProductModal = ({ setDeletingProduct, deletingProduct, refetch }) =>
     const { name, _id } = deletingProduct
 
     const handleDeleleteProduct = () => {
-        const url = `http://localhost:5000/product/${_id}`
+        const url = `https://shielded-basin-34562.herokuapp.com/product/${_id}`
         fetch(url, {
             method: "DELETE",
 
