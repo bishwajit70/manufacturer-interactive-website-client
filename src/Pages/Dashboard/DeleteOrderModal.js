@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const DeleteOrderModal = ({deletingOrder, refetch, setDeletingOrder}) => {
     const {_id, name}=deletingOrder
 
-    const handleDeleleteOrder = () => {
+    const handleDeleteOrder = () => {
         const url = `http://localhost:5000/orders/${_id}`
         fetch(url, {
             method: "DELETE",
@@ -30,7 +30,7 @@ const DeleteOrderModal = ({deletingOrder, refetch, setDeletingOrder}) => {
                     <p class="py-4">If you delete your order you will not get your order information</p>
                     <div class="modal-action">
                         <button
-                            onClick={() => handleDeleleteOrder(_id)}
+                            onClick={() => handleDeleteOrder(_id)}
                             class="btn modal-button btn-error"
                             for="delete-order-modal"
                         >Delete</button>
