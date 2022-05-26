@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const SingleOrder = ({ order, index, setDeletingOrder }) => {
-    const { _id, name, image, minorder, unitprice } = order
+    const { _id, name, image, newOrderQty, unitprice } = order
     const navigate = useNavigate()
 
     return (
@@ -13,7 +13,7 @@ const SingleOrder = ({ order, index, setDeletingOrder }) => {
                 <img src={image} alt='' />
             </div></td>
             <td>{name}</td>
-            <td>{minorder}</td>
+            <td>{newOrderQty}</td>
             <td>
                 <label onClick={() => setDeletingOrder(order)} htmlFor="delete-confirm-modal" className="btn modal-button text-white font-bold bg-orange-500 hover:bg-orange-600 duration-700 rounded-md border-0">Delete</label>
             </td>

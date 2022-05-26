@@ -16,7 +16,7 @@ const Payment = () => {
 
     const { id } = useParams()
 
-    const { name, image, description, minorder, available, unitprice } = payments
+    const { name, image, description, newOrderQty, available, unitprice } = payments
 
     useEffect(() => {
         const url = `https://shielded-basin-34562.herokuapp.com/payment/${id}`
@@ -28,7 +28,7 @@ const Payment = () => {
     return (
         <div>
             <p className='text-center text-2xl text-purple-500'>Hello!! {user.displayName}</p>
-            <p className='text-center text-2xl text-purple-500'>Please Pay htmlFor </p>
+            <p className='text-center text-2xl text-purple-500'>Please Pay for <span className='text-orange-500'>{name}</span>  </p>
             <div className='flex mx-auto justify-center py-5'>
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <figure className="px-10 pt-10">
@@ -37,10 +37,10 @@ const Payment = () => {
                     <div className="card-body items-center text-center">
                         <h2 className="card-title">{name}</h2>
                         <p className='text-left'>{description}</p>
-                        <p className='text-left'>Ordered Quantity: <span>{minorder}</span></p>
+                        <p className='text-left'>Ordered Quantity: <span>{newOrderQty}</span></p>
                         <p className='text-left'>Unit Price: <span>{unitprice}</span></p>
                         <div className="card-actions">
-
+                        <button className='text-white font-bold bg-orange-500 hover:bg-orange-600 duration-700 rounded-md border-0 btn'>Complete Payment</button>
                         </div>
                     </div>
                 </div>

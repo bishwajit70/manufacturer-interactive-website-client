@@ -1,23 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../firebase.init';
 import Footer from './Home/Footer';
+import Loading from './Shared/Loading';
 
 const Purchase = () => {
     const [user, loading, error] = useAuthState(auth);
 
-    const [purchase, setPurchase] = useState({})
+    // const [purchase, setPurchase] = useState({})
     const { id } = useParams()
 
-    const { name, image, description, minorder, available, unitprice } = purchase
-    useEffect(() => {
-        const url = `https://shielded-basin-34562.herokuapp.com/purchase/${id}`
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setPurchase(data))
-    }, [id])
+    // const { name, image, description, minorder, available, unitprice } = purchase
+
+    const { data: purchase, isLoading, refetch } = useQuery('purchase', () => fetch(`https://shielded-basin-34562.herokuapp.com/purchase/${id}`, {
+        method: 'GET',
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        }
+
+    }).then(res => res.json()))
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+
+    // useEffect(() => {
+    //     const url = `https://shielded-basin-34562.herokuapp.com/purchase/${id}`
+    //     fetch(url)
+    //         .then(res => res.json())
+    //         .then(data => setPurchase(data))
+    // }, [id])
 
 
     const handleAddOrder = (event) => {
@@ -27,9 +42,15 @@ const Purchase = () => {
         const address = event.target.address.value;
         const phone = event.target.phone.value;
         const others = event.target.others.value;
+        const name = purchase.name;
+        const image = purchase.image;
+        const description = purchase.description
+        const available = purchase.available
+        const unitprice = purchase.unitprice
+
         const newOrderQty = parseInt(event.target.orderQty.value);
 
-        if (newOrderQty > available || newOrderQty < minorder) {
+        if (newOrderQty > purchase.available || newOrderQty < purchase.minorder) {
             toast.error("Quantity is Higher or than available or lower than Minimum Order")
 
         } else {
@@ -45,9 +66,7 @@ const Purchase = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
                     toast.success("Order Placed Successfully.")
-
                 })
         }
         event.target.reset();
@@ -61,14 +80,14 @@ const Purchase = () => {
             <h2>Email: {user.email}</h2>
             <div className='grid gird-cols-1 lg:flex mb-5'>
                 <div className='lg:w-5/12 border-2 p-5 rounded-lg'>
-                    <img src={image} alt="" />
+                    <img src={purchase.image} alt="" />
                 </div>
                 <div className='lg:ml-5 p-5 rounded-lg border-2 lg:w-7/12'>
-                    <h2 className='text-3xl pb-3'>{name}</h2>
-                    <h2 className='text-xl py-3'>{description}</h2>
-                    <p className='font-bold text-xl'>Available Quantity: <span>{available} Units</span> </p>
-                    <p className='font-bold py-2 text-xl'>Unit Price: $ <span>{unitprice}</span></p>
-                    <p className='font-bold pb-2 text-xl'>Order Quantity: <span>{minorder}</span></p>
+                    <h2 className='text-3xl pb-3'>{purchase.name}</h2>
+                    <h2 className='text-xl py-3'>{purchase.description}</h2>
+                    <p className='font-bold text-xl'>Available Quantity: <span>{purchase.available} Units</span> </p>
+                    <p className='font-bold py-2 text-xl'>Unit Price: $ <span>{purchase.unitprice}</span></p>
+                    <p className='font-bold pb-2 text-xl'>Order Quantity: <span>{purchase.minorder}</span></p>
                 </div>
             </div>
             <form onSubmit={handleAddOrder}>
