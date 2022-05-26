@@ -16,7 +16,7 @@ const Parts = () => {
     }
     const allProducts = products
 
-    const hompageProducts = allProducts.slice(0, 4)
+    const hompageProducts = allProducts.slice(-3)
 
 
     return (

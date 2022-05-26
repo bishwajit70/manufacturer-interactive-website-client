@@ -3,6 +3,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import logo from '../../images/logo.webp'
 
 const Navbar = () => {
     const [user] = useAuthState(auth);
@@ -28,7 +29,7 @@ const Navbar = () => {
         <li>{user && <Link to='/'>{user.displayName}</Link>}</li>
     </>
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar border-b-2 shadow-xl rounded-lg bg-base-100">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -38,7 +39,11 @@ const Navbar = () => {
                         {menuItem}
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost normal-case text-xl"><span>Bike Manufacturer</span></Link>
+                <div className='flex justify-start items-center'>
+                    <Link to='/'><img className='w-10' src={logo} alt="" /></Link>
+                    <Link to='/' className="btn btn-ghost normal-case text-xl"><span>Bike Manufacturer</span></Link>
+                </div>
+
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
