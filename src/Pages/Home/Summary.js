@@ -66,7 +66,7 @@ const Summary = () => {
                             <h2 className='text-2xl font-bold'>How will we contact with us?</h2>
                         </div>
                         <div className="collapse-content bg-white">
-                            <p>Visit our Website and then you will get the contact info as well as you will find contact information in our bruchure or user manual.</p>
+                            <p>Visit our Website and then you will get the contact info as well as you will find contact inforation in our bruchure or user manual.</p>
                         </div>
                     </div>
                 </div>

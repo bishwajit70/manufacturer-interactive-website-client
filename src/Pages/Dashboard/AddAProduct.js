@@ -32,18 +32,16 @@ const AddAProduct = () => {
 
     return (
         <div>
-            Add A Product
             <form onSubmit={handleAddOrder}>
-                <div className='grid grid-cols-2 gap-3'>
-                    <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="text" name="name" placeholder='Product Name' id="" />
-                    <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="text" name="image" placeholder='Image URL' id="" />
-                    <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="text" name="description" placeholder='Short Description' id="" />
-                    <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="text" name="available" placeholder='Available Quantity' id="" />
-                    <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="text" name="minorder" placeholder='Minimum Order Quantity' id="" />
-                    <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="number" name="unitprice" placeholder='Unit Price' id="" />
-                    <input className='border-2 lounded-lg p-2 cursor-pointer mb-3 rounded-md' type="submit" value="Add Product" />
+                <div className='grid px-1 grid-cols-1 lg:grid-cols-2 gap-3'>
+                    <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="text" name="name" required placeholder='Product Name' id="" />
+                    <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="text" name="image" required placeholder='Image URL' id="" />
+                    <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="text" name="description" required placeholder='Short Description' id="" />
+                    <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="text" name="available" required placeholder='Available Quantity' id="" />
+                    <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="text" name="minorder" required placeholder='Minimum Order Quantity' id="" />
+                    <input className='border-2 lounded-lg p-2 mb-3 rounded-md' type="number" name="unitprice" required placeholder='Unit Price' id="" />
+                    <input className='border-2 text-white font-bold bg-orange-500 hover:bg-orange-600 duration-700 lounded-lg p-2 cursor-pointer mb-3 rounded-md' type="submit" value="Add Product" />
                 </div>
-
             </form>
         </div>
     );

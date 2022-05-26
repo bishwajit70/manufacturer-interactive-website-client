@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 
-h1, h2, button, p, h3, li, span{
+h1, h2, button, input, p, h3, li, a, span{
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
 }

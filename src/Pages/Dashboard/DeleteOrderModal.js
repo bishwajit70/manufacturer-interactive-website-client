@@ -27,14 +27,14 @@ const DeleteOrderModal = ({ deletingOrder, refetch, setDeletingOrder }) => {
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
                     <h3 className="font-bold text-lg text-red-600">Are you sure you want to delete Product: {name}  </h3>
-                    <p className="py-4">If you delete your order you will not get your order information</p>
+                    <p className="py-4">If you delete your order you will not get your order inforation</p>
                     <div className="modal-action">
                         <button
                             onClick={() => handleDeleteOrder(_id)}
                             className="btn modal-button btn-error"
-                            for="delete-order-modal"
+                            htmlFor="delete-order-modal"
                         >Delete</button>
-                        <label for="delete-order-modal" className="btn">Cancel</label>
+                        <label htmlFor="delete-order-modal" className="btn">Cancel</label>
                     </div>
                 </div>
             </div>

@@ -56,7 +56,7 @@ const MyProfile = () => {
                 <p>Location: {data?.location}</p>
                 <p>Phone Number: {data?.phone}</p>
             </div>
-            <div className="grid px-5 grid-cols-1 mx-auto">
+            <div className="grid grid-cols-1 px-5 mx-auto">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div>
                         <label className="label">
@@ -72,7 +72,7 @@ const MyProfile = () => {
                             name='education'
                             type="text"
                             placeholder="Your Education"
-                            className="border-2 w-11/12 rounded-lg p-2" />
+                            className="border-2 w-full rounded-lg p-2" />
                         <label className="label">
                             {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
                         </label>
@@ -93,7 +93,7 @@ const MyProfile = () => {
                             name='location'
                             type="text"
                             placeholder="Your Location"
-                            className="border-2 w-11/12 rounded-lg p-2" />
+                            className="border-2 w-full rounded-lg p-2" />
                         <label className="label">
                             {errors.location?.type === 'required' && <span className="label-text-alt text-red-500">{errors.location.message}</span>}
                         </label>
@@ -116,7 +116,7 @@ const MyProfile = () => {
                             name='phone'
                             type="text"
                             placeholder="Your Phone"
-                            className="border-2 w-11/12 rounded-lg p-2" />
+                            className="border-2 w-full rounded-lg p-2" />
                         <label className="label">
                             {errors.phone?.type === 'required' && <span className="label-text-alt text-red-500">{errors.phone.message}</span>}
                         </label>
@@ -136,14 +136,14 @@ const MyProfile = () => {
                             name='linkedin'
                             type="text"
                             placeholder="Your Linkedin Profile Link"
-                            className="border-2 w-11/12 rounded-lg p-2" />
+                            className="border-2 w-full rounded-lg p-2" />
                         <label className="label">
                             {errors.linkedin?.type === 'required' && <span className="label-text-alt text-red-500">{errors.linkedin.message}</span>}
                         </label>
                     </div>
-                    <div className='grid grid-cols-2 xs:w-full lg:grid-cols-2 gap-5 lg:w-11/12 justify-between'>
-                        <input className="btn" type="submit" value='Submit' />
-                        <input className="btn" type="submit" value='Update' />
+                    <div className='grid grid-cols-2 lg:grid-cols-2 gap-5 justify-between'>
+                        <input className="btn text-white font-bold bg-orange-500 hover:bg-orange-600 duration-700 rounded-md border-0" type="submit" value='Submit' />
+                        <input className="btn text-white font-bold bg-orange-500 hover:bg-orange-600 duration-700 rounded-md border-0" type="submit" value='Update' />
                     </div>
                 </form>
             </div>

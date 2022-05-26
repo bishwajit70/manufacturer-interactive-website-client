@@ -41,7 +41,7 @@ const SignUp = () => {
     if (error || googleError || updateError) {
         signUpError = <p className='text-red-500 pb-3 text-center'><small>{error?.message || googleError?.message || updateError?.message}</small></p>
     }
-    
+
 
     const onSubmit = async data => {
         // console.log(data);
@@ -58,7 +58,7 @@ const SignUp = () => {
 
                     <form onSubmit={handleSubmit(onSubmit)}>
 
-                        <div className="form-control w-full max-w-xs">
+                        <div className="for-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
@@ -79,7 +79,7 @@ const SignUp = () => {
                             </label>
                         </div>
 
-                        <div className="form-control w-full max-w-xs">
+                        <div className="for-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
@@ -104,7 +104,7 @@ const SignUp = () => {
                             </label>
                         </div>
 
-                        <div className="form-control w-full max-w-xs">
+                        <div className="for-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>

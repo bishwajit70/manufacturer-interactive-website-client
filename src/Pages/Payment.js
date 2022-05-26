@@ -28,7 +28,7 @@ const Payment = () => {
     return (
         <div>
             <p className='text-center text-2xl text-purple-500'>Hello!! {user.displayName}</p>
-            <p className='text-center text-2xl text-purple-500'>Please Pay for </p>
+            <p className='text-center text-2xl text-purple-500'>Please Pay htmlFor </p>
             <div className='flex mx-auto justify-center py-5'>
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <figure className="px-10 pt-10">

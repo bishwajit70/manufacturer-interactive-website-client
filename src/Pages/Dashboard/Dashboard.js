@@ -8,14 +8,14 @@ const Dashboard = () => {
     const [user] = useAuthState(auth)
     const [admin] = useAdmin(user)
     return (
-        <div className="drawer pt-5 drawer-mobile">
+        <div className="drawer py-5 drawer-mobile">
             <input id="dashboard-sidebar" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
-                <h2 className='text-2xl text-center text-purple-500 font-bold'>Welcome to Your Dashboard</h2>
+                <h2 className='text-2xl pb-5 text-center text-purple-500 font-bold'>Welcome to Your Dashboard</h2>
                 <Outlet></Outlet>
             </div>
             <div className="drawer-side">
-                <label for="dashboard-sidebar" className="drawer-overlay"></label>
+                <label htmlFor="dashboard-sidebar" className="drawer-overlay"></label>
                 <ul className="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content">
                     <li><Link to='/dashboard'>My Profile</Link></li>
                     {!admin && <li><Link to='/dashboard/myorder'>My Orders</Link></li>}

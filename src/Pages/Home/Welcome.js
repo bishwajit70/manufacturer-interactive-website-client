@@ -10,23 +10,23 @@ const Welcome = () => {
                     <h1 className="text-4xl py-2 font-bold">The Global Leader In The Industry & Manufacturing Of Innovative.</h1>
                     <p className="py-2 text-2xl text-slate-500">Bike Manufacturer is A Industry & Manufacturing Services Provider Institutions. Suitable For Factory, Manufacturing, Industry, Engineering, Construction And Any Related Industry Care Field.</p>
                     <div className='flex py-2 items-center'>
-                        <input type="checkbox" checked="checked" className="checkbox" />
+                        <input type="checkbox" defaultChecked="defaultChecked" className="checkbox" />
                         <p className='ml-5'>Providing Innovative Website Solution For Future</p>
                     </div>
                     <div className='flex py-2 items-center'>
-                        <input type="checkbox" checked="checked" className="checkbox" />
+                        <input type="checkbox" defaultChecked="defaultChecked" className="checkbox" />
                         <p className='ml-5'>We Use Qulity Manufacturing Materials</p>
                     </div>
                     <div className='flex py-2 items-center'>
-                        <input type="checkbox" checked="checked" className="checkbox" />
+                        <input type="checkbox" defaultChecked="defaultChecked" className="checkbox" />
                         <p className='ml-5'>We Provide Unique Technology</p>
                     </div>
                     <div className='flex py-2 items-center'>
-                        <input type="checkbox" checked="checked" className="checkbox" />
+                        <input type="checkbox" defaultChecked="defaultChecked" className="checkbox" />
                         <p className='ml-5'>Group Of Certified & Experienced Team</p>
                     </div>
                     <div className='flex py-2 items-center'>
-                        <input type="checkbox" checked="checked" className="checkbox" />
+                        <input type="checkbox" defaultChecked="defaultChecked" className="checkbox" />
                         <p className='ml-5'>The Best Services Of Multiple Industries</p>
                     </div>
 

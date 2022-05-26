@@ -7,12 +7,12 @@ const CheckoutForm = () => {
     const elements = useElements();
 
     const handleSubmit = async (event) => {
-        // Block native form submission.
+        // Block native for submission.
         event.preventDefault();
 
         if (!stripe || !elements) {
             // Stripe.js has not loaded yet. Make sure to disable
-            // form submission until Stripe.js has loaded.
+            // for submission until Stripe.js has loaded.
             return;
         }
 
@@ -39,7 +39,7 @@ const CheckoutForm = () => {
 
 
         return (
-            <form onSubmit={handleSubmit}>
+            <for onSubmit={handleSubmit}>
                 <CardElement
                     options={{
                         style: {
@@ -59,7 +59,7 @@ const CheckoutForm = () => {
                 <button type="submit" disabled={!stripe}>
                     Pay
                 </button>
-            </form>
+            </for>
         );
     };
 }

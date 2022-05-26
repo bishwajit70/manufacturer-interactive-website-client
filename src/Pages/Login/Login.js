@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle }
-from 'react-firebase-hooks/auth';
+    from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading';
@@ -64,7 +64,7 @@ const Login = () => {
 
                     <form onSubmit={handleSubmit(onSubmit)}>
 
-                        <div className="form-control w-full max-w-xs">
+                        <div className="for-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
@@ -89,7 +89,7 @@ const Login = () => {
                             </label>
                         </div>
 
-                        <div className="form-control w-full max-w-xs">
+                        <div className="for-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>

@@ -5,6 +5,7 @@ import auth from '../../firebase.init';
 
 const UserRow = ({ user, index, refetch }) => {
     const { email, role } = user
+
     const makeAdmin = () => {
         fetch(`https://shielded-basin-34562.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
@@ -30,8 +31,8 @@ const UserRow = ({ user, index, refetch }) => {
         <tr>
             <th>{index + 1}</th>
             <td>{email}</td>
-            <td>{role !== 'admin' && <button onClick={makeAdmin} className="btn btn-xs">Make Admin</button>}</td>
-            <td><button className="btn btn-xs">Remove User</button></td>
+            <td>{role !== 'admin' && <button onClick={makeAdmin} className="btn btn-xs text-white font-bold bg-orange-500 hover:bg-orange-600 duration-700 rounded-md border-0">Make Admin</button>}</td>
+            <td><button className="btn text-white font-bold bg-orange-500 hover:bg-orange-600 duration-700 rounded-md border-0 btn-xs">Remove User</button></td>
         </tr>
 
     );

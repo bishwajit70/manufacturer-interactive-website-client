@@ -15,22 +15,25 @@ const AddAReview = () => {
         const photoUrl = user.photoURL;
         const reviewText = data.review;
         const ratings = data.ratings
-        console.log(ratings)
 
-        const reviews = {userName, email, reviewText, photoUrl, ratings}
+        const reviews = { userName, email, reviewText, photoUrl, ratings }
 
-        fetch('https://shielded-basin-34562.herokuapp.com/review', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-            },
-            body: JSON.stringify(reviews)
-        })
-            .then(res => res.json())
-            .then(data => {
-                toast.success('Review Placed Successfully.')
+        if (ratings > 5 || ratings < 0) {
+            toast.error('Ratings must be 0-5')
+        } else {
+            fetch('https://shielded-basin-34562.herokuapp.com/review', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(reviews)
             })
+                .then(res => res.json())
+                .then(data => {
+                    toast.success('Review Placed Successfully.')
+                })
+        }
     }
 
     return (
