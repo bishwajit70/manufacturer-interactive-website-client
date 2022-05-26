@@ -10,7 +10,7 @@ const Banner = () => {
                 <button className='py-5 mt-10 px-10 text-2xl text-white font-bold bg-orange-500 hover:bg-orange-600 duration-700 rounded-md'>Get Started</button>
             </div>
             <div className='lg:w-1/2'>
-                <img className='rounded-lg shadow-lg' src="https://i.ibb.co/GJw8cFb/tools-table.webp" alt="" />
+                <img className='rounded-lg shadow-lg' src="https://i.ibb.co/vxPYBT5/black-bicycle-tied-outdoors-23-2148907937.webp" alt="" />
             </div>
 
         </div>
