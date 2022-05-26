@@ -115,16 +115,16 @@ const Login = () => {
                             </label>
                         </div>
                         {signInError}
-                        <input className="btn w-full max-w-xs" type="submit" value='Login' />
+                        <input className="btn w-full max-w-xs text-white font-bold bg-orange-500 hover:bg-orange-600 duration-700 rounded-md border-0" type="submit" value='Login' />
                     </form>
 
                     <div className="divider">OR</div>
 
-                    <p className='text-center'>New to Manufacturer? <Link to='/signup' className='text-secondary'>Create New Account</Link></p>
+                    <p className='text-center'>New? <Link to='/signup' className='text-purple-600 mb-4'>Create New Account</Link></p>
 
-                    <button onClick={() => handleResetPassword()} className="btn btn-outline">Reset Password</button>
+                    <button onClick={() => handleResetPassword()} className="btn btn-outline hover:bg-orange-600 duration-700 hover:border-0">Reset Password</button>
 
-                    <button onClick={() => signInWithGoogle()} className="btn btn-outline">Continue with Google</button>
+                    <button onClick={() => signInWithGoogle()} className="btn btn-outline hover:bg-orange-600 duration-700 hover:border-0">Continue with Google</button>
 
                 </div>
             </div>
