@@ -1,10 +1,49 @@
-# Getting Started with Create React App
+# Getting Started with Bike Manufacturer App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Bike Manufacturer App](https://manufacturer-portal.web.app/).
 
-## Available Scripts
+## Available Features
+
+* This is a bike manufacturer app
 
 In the project directory, you can run:
+
+## For Normal User (Dashboard features)
+* User can login both social or email/password
+* User can go to purchase page to order any product
+* User also can add his/her review
+* User can add or update his profile
+* User can see which product(s) are ordered
+* User also can delete any product from order page
+* User also can see the paymenet page with the pay button
+
+## For Admin User (Dashboard features)
+* Admin can login both social or email/password
+* Admin user can see his/her profile
+* Admin user can see other page on dashboard except My Profile page
+* Admin can not see Add Review and My order Page
+* Admin can see Manage All Order Page
+* Admin can see All Users page 
+* Admin can make any normal user as Admin
+* Admin can add product
+* Admin can see manage product and he can delete any product
+
+## On Home Page
+* A Banner, Product for buy, A Summary, Clients Review, A welcome Area and A Provided Products are will be seen
+* A Footer also added in brief
+* A Blog page is added
+* Brief Portfolio also added
+
+## Used Technologies 
+* React Query 
+* Firebase for hosting
+* react-firebase-hooks
+* react-hook-form
+* react-icons
+* react-toastify
+* tailwind.css
+* daisyUI
+
 
 ### `npm start`
 

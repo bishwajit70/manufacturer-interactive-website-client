@@ -80,7 +80,7 @@ const AddAReview = () => {
                                 className="border-2 w-11/12 rounded-lg p-2" />
 
                             <label className="label">
-                                {errors.review?.type === 'required' && <span className="label-text-alt text-red-500">{errors.review.message}</span>}
+                                {errors.ratings?.type === 'required' && <span className="label-text-alt text-red-500">{errors.ratings.message}</span>}
                             </label>
                         </div>
 

@@ -6,7 +6,7 @@ const SingleProduct = ({ product }) => {
     const navigate = useNavigate()
     return (
         <div className='border-2 rounded-md shadow-lg'>
-            <img className='rounded-md p-2 mx-auto' src={image} alt='' />
+            <img className='rounded-md h-64 p-2 mx-auto' src={image} alt='' />
             <div className='p-3' >
                 <h2 className='text-2xl font-bold text-purple-500 mb-3'>{name}</h2>
                 <p>{description}</p>
