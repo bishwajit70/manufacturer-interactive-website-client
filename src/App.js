@@ -20,6 +20,7 @@ import Payment from './Pages/Payment';
 import ManageAllOrders from './Pages/Dashboard/ManageAllOrders';
 import AddAProduct from './Pages/Dashboard/AddAProduct';
 import ManageProduct from './Pages/Dashboard/ManageProduct';
+import Blog from './Pages/Blog';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/myportfolio' element={<MyPortfolio></MyPortfolio>}></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/purchase/:id' element={
           <RequireAuth>
             <Purchase></Purchase>
