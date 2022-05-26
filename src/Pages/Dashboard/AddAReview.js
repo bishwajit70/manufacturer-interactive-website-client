@@ -86,7 +86,7 @@ const AddAReview = () => {
 
 
                         <div className='grid grid-cols-2 xs:w-full lg:grid-cols-2 gap-5 lg:w-11/12 justify-between'>
-                            <input className="btn" type="submit" value='Add Review' />
+                            <input className="btn text-white font-bold bg-orange-500 hover:bg-orange-600 duration-700 rounded-md border-0" type="submit" value='Add Review' />
                         </div>
                     </form>
                 </div>
