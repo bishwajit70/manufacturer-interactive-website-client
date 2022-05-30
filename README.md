@@ -43,7 +43,7 @@ In the project directory, you can run:
 * react-toastify
 * tailwind.css
 * daisyUI
-* daisy Modal
+* daisy modal
 
 
 ### `npm start`
